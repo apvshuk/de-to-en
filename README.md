@@ -120,5 +120,3 @@ The dictionary data is derived from the German Wiktionary, which is licensed und
 ## Author
 
 [apvshuk](https://github.com/apvshuk)
-
-@apvshuk
