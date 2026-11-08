@@ -28,19 +28,26 @@ git clone https://github.com/apvshuk/detoen
 cd detoen
 ```
 
-### 2. Compile the binary
+### 2. Set the dictionary path
+
+Open `main.c` and make sure this line reads:
+```c
+fopen("/usr/share/detoen/german_english.tsv", "r");
+```
+
+### 3. Compile the binary
 
 ```bash
 gcc -o detoen main.c
 ```
 
-### 3. Install the binary system-wide
+### 4. Install the binary system-wide
 
 ```bash
 sudo cp detoen /usr/local/bin/detoen
 ```
 
-### 4. Install the dictionary
+### 5. Install the dictionary
 
 ```bash
 sudo mkdir -p /usr/share/detoen
@@ -91,11 +98,6 @@ python3 parse.py
 This will produce a new `german_english.tsv` in the current directory.
 
 ## How It Works
-
-> **Note:** The dictionary path is hardcoded in `main.c`. Make sure this line reflects the correct path before compiling:
-> ```c
-> fopen("/usr/share/detoen/german_english.tsv", "r");
-> ```
 
 1. On startup, `detoen` loads the entire TSV dictionary into an array of structs in memory.
 2. The array is sorted alphabetically using `qsort`.
