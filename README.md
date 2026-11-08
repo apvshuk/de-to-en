@@ -92,6 +92,11 @@ This will produce a new `german_english.tsv` in the current directory.
 
 ## How It Works
 
+> **Note:** The dictionary path is hardcoded in `main.c`. Make sure this line reflects the correct path before compiling:
+> ```c
+> fopen("/usr/share/detoen/german_english.tsv", "r");
+> ```
+
 1. On startup, `detoen` loads the entire TSV dictionary into an array of structs in memory.
 2. The array is sorted alphabetically using `qsort`.
 3. The query word is looked up using `bsearch` — a standard library binary search implementation.
