@@ -1,10 +1,10 @@
-# detoeng
+# detoen
 
 A command-line German to English dictionary tool for Linux, written in C.
 
 ## Overview
 
-`detoeng` is a fast, offline German-to-English word translator that runs entirely from the terminal. It is built in C and uses a binary search algorithm to look up words from a dictionary of over 80,000 entries extracted from the German Wiktionary dump.
+`detoen` is a fast, offline German-to-English word translator that runs entirely from the terminal. It is built in C and uses a binary search algorithm to look up words from a dictionary of over 80,000 entries extracted from the German Wiktionary dump.
 
 ## Features
 
@@ -24,47 +24,47 @@ A command-line German to English dictionary tool for Linux, written in C.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/apvshuk/detoeng
-cd detoeng
+git clone https://github.com/apvshuk/detoen
+cd detoen
 ```
 
 ### 2. Compile the binary
 
 ```bash
-gcc -o detoeng main.c
+gcc -o detoen main.c
 ```
 
 ### 3. Install the binary system-wide
 
 ```bash
-sudo cp detoeng /usr/local/bin/detoeng
+sudo cp detoen /usr/local/bin/detoen
 ```
 
 ### 4. Install the dictionary
 
 ```bash
-sudo mkdir -p /usr/share/detoeng
-sudo cp german_english.tsv /usr/share/detoeng/
+sudo mkdir -p /usr/share/detoen
+sudo cp german_english.tsv /usr/share/detoen/
 ```
 
-`detoeng` is now available globally from any directory.
+`detoen` is now available globally from any directory.
 
 ## Usage
 
 ```bash
-detoeng <german_word>
+detoen <german_word>
 ```
 
 ### Examples
 
 ```bash
-detoeng Hund
+detoen Hund
 # dog
 
-detoeng Katze
+detoen Katze
 # cat
 
-detoeng Haus
+detoen Haus
 # house
 ```
 
@@ -92,7 +92,7 @@ This will produce a new `german_english.tsv` in the current directory.
 
 ## How It Works
 
-1. On startup, `detoeng` loads the entire TSV dictionary into an array of structs in memory.
+1. On startup, `detoen` loads the entire TSV dictionary into an array of structs in memory.
 2. The array is sorted alphabetically using `qsort`.
 3. The query word is looked up using `bsearch` — a standard library binary search implementation.
 4. The result is printed to stdout.
@@ -100,8 +100,8 @@ This will produce a new `german_english.tsv` in the current directory.
 ## Uninstallation
 
 ```bash
-sudo rm /usr/local/bin/detoeng
-sudo rm -rf /usr/share/detoeng
+sudo rm /usr/local/bin/detoen
+sudo rm -rf /usr/share/detoen
 ```
 
 ## License
